@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Background Change Effect On Website</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="imag-box">
+        <img src="./images/car.png" draggable="false" width="100%" id="car" />
+
+        <div class="img-wrap">
+          <img src="./images/street.avif" draggable="false" id="streetImg" />
+        </div>
+
+        <span id="line">
+          <img src="./images/handle.png" draggable="false" class="arrow" />
+        </span>
+      </div>
+    </div>
+
+    <script>
+      var imgBox = document.querySelector(".imag-box");
+      var imgWrap = document.querySelector(".img-wrap");
+      var streetImg = document.getElementById("streetImg");
+      var line = document.getElementById("line");
+
+      streetImg.style.width = imgBox.offsetWidth + "px";
+
+      var leftSpace = imgBox.offsetLeft;
+
+      imgBox.addEventListener("mousemove", function (e) {
+        var boxWidth = e.pageX - leftSpace + "px";
+        imgWrap.style.width = boxWidth;
+        line.style.left = boxWidth;
+      });
+    </script>
+  </body>
+</html>
